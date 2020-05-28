@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const Header = ({ name, description, avatarUrl, url }) => (
-  <header className="border-b border-gray-400 bg-white">
+  <header className="border-b border-gray-400 bg-white p-3">
     <div className="container mx-auto py-4 flex">
       <img
         className="w-20 h-20 mr-2"

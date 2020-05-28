@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => (
   <Layout>
     <Header {...data.github.organization} />
 
-    <main className="container mx-auto">
+    <main className="container mx-auto p-3">
       {data.github.organization.repositories.edges.map((repository) => (
         <Repository
           key={repository.node.id}

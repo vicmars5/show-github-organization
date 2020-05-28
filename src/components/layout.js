@@ -14,10 +14,8 @@ const Layout = ({ children }) => {
     <>
       <div>
         {children}
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {' '}
-          <a href='https://www.gatsbyjs.org'>Gatsby</a>
+        <footer class="p-3">
+          Built by Victor Diaz
         </footer>
       </div>
     </>
