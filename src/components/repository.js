@@ -17,7 +17,7 @@ const Repository = ({ name, description, contributorsCount, starsCount, url }) =
 
 Repository.propTypes = {
   name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   contributorsCount: PropTypes.number.isRequired,
   starsCount: PropTypes.number.isRequired,
   url: PropTypes.string.isRequired,
