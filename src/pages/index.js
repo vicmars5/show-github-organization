@@ -9,15 +9,17 @@ const IndexPage = ({ data }) => (
   <Layout>
     <Header {...data.github.organization} />
 
-    {data.github.organization.repositories.edges.map((repository) => (
-      <Repository
-        key={repository.node.id}
-        name={repository.node.name}
-        description={repository.node.description}
-        contributorsCount={repository.node.mentionableUsers.totalCount}
-        starsCount={repository.node.stargazers.totalCount}
-      />
-    ))}
+    <main className="container mx-auto">
+      {data.github.organization.repositories.edges.map((repository) => (
+        <Repository
+          key={repository.node.id}
+          name={repository.node.name}
+          description={repository.node.description}
+          contributorsCount={repository.node.mentionableUsers.totalCount}
+          starsCount={repository.node.stargazers.totalCount}
+        />
+      ))}
+    </main>
   </Layout>
 )
 

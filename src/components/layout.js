@@ -7,12 +7,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import '../css/index.css'
 
 const Layout = ({ children }) => {
   return (
     <>
       <div>
-        <main>{children}</main>
+        {children}
         <footer>
           © {new Date().getFullYear()}, Built with
           {' '}

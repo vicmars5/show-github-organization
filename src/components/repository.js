@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import '../css/index.css'
 
 const Repository = ({ name, description, contributorsCount, starsCount, url }) => (
-  <section>
+  <section className="bg-white my-4 rounded p-3 border border-gray-500">
     <a href={url}>
-      <h2>{name}</h2>
-      <p>{description}</p>
-      <p>
+      <h2 className="text-lg font-bold text-gray-900">{name}</h2>
+      <p className="">{description}</p>
+      <p className="text-sm pt-3">
         Contributors: {contributorsCount}
 				{' '}
         Stars: {starsCount}
