@@ -15,6 +15,7 @@ const IndexPage = ({ data }) => (
           key={repository.node.id}
           name={repository.node.name}
           description={repository.node.description}
+          url={repository.node.url}
           contributorsCount={repository.node.mentionableUsers.totalCount}
           starsCount={repository.node.stargazers.totalCount}
         />
@@ -39,6 +40,7 @@ export const query = graphql`
               id
               name
               description
+              url
               mentionableUsers (first: 1) {
                 totalCount
               }
