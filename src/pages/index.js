@@ -3,16 +3,21 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Header from '../components/header'
+import Repository from '../components/repository'
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <Header siteTitle={data.github.organization.name} />
+    <Header {...data.github.organization} />
 
-    <pre>
-      <code>
-        {JSON.stringify(data, null, 2)}
-      </code>
-    </pre>
+    {data.github.organization.repositories.edges.map((repository) => (
+      <Repository
+        key={repository.node.id}
+        name={repository.node.name}
+        description={repository.node.description}
+        contributorsCount={repository.node.mentionableUsers.totalCount}
+        starsCount={repository.node.stargazers.totalCount}
+      />
+    ))}
   </Layout>
 )
 
@@ -29,6 +34,7 @@ export const query = graphql`
           totalCount
           edges {
             node {
+              id
               name
               description
               mentionableUsers (first: 1) {
