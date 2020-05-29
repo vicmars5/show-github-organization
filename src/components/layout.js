@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
     <>
       <div>
         {children}
-        <footer class="p-3">
+        <footer className="p-3">
           Built by Victor Diaz
         </footer>
       </div>
