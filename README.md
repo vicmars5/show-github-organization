@@ -17,6 +17,8 @@ I wanted to keep this project as simple as possible avoiding the use of unnecess
 
 [See performance test](https://gtmetrix.com/reports/5ed098583465d8000719819e--stoic-noyce-23cda7.netlify.app/E4Dq2f6L)
 
+![GitHub Logo](/docs/performance-test.png)
+
 To accomplish this goal I made use of tools like `purge-css` to remove all unused CSS classes. Before config this plugin the page size was around 177kb.
 
 ### Tailwind CSS
@@ -37,3 +39,4 @@ The project expects the GitHub API token as an environment variable: `GITHUB_TOK
 This token is only used by Gatsby to generate the website and should be safe to be published. You can also use a `.env` file for development. 
 
 ## Preview
+![Preview](/docs/preview.jpg)
