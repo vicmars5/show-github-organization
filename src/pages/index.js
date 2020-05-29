@@ -1,21 +1,56 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import Header from '../components/header'
+import Repository from '../components/repository'
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Header {...data.github.organization} />
+
+    <main className="container mx-auto p-3">
+      {data.github.organization.repositories.edges.map((repository) => (
+        <Repository
+          key={repository.node.id}
+          name={repository.node.name}
+          description={repository.node.description}
+          url={repository.node.url}
+          contributorsCount={repository.node.mentionableUsers.totalCount}
+          starsCount={repository.node.stargazers.totalCount}
+        />
+      ))}
+    </main>
   </Layout>
 )
 
 export default IndexPage
+export const query = graphql`
+  query {
+    github {
+      organization (login: "debtcollective") {
+        name
+        description
+        avatarUrl
+        url
+        repositories (first: 100) {
+          totalCount
+          edges {
+            node {
+              id
+              name
+              description
+              url
+              mentionableUsers (first: 1) {
+                totalCount
+              }
+              stargazers (first: 1) {
+                totalCount
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

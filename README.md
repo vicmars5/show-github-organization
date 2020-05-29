@@ -1,99 +1,42 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+A repo to show GitHub organizations using the GitHub GraphQL API and Gatsby.
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Start
+Run project.
+```
+yarn
+yarn dev
+```
 
-## 🚀 Quick start
+Once the server is running you can see a preview in http://localhost:8000 GraphiQL in this url http://localhost:8000/___graphql 
 
-1.  **Create a Gatsby site.**
+This repo is configured for automatic deploys to Netlify.
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+## Project setup
+I wanted to keep this project as simple as possible avoiding the use of unnecessary dependencies to provide a better experience to the user and developer. The result is a lightweight website with a loading time of 1.25s in my home network.
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+[See performance test](https://gtmetrix.com/reports/5ed098583465d8000719819e--stoic-noyce-23cda7.netlify.app/E4Dq2f6L)
 
-1.  **Start developing.**
+![GitHub Logo](/docs/performance-test.png)
 
-    Navigate into your new site’s directory and start it up.
+To accomplish this goal I made use of tools like `purge-css` to remove all unused CSS classes. Before config this plugin the page size was around 177kb.
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+### Tailwind CSS
+This repo use [tailwindcss](https://tailwindcss.com/) as CSS framework and [utility-first](https://critter.blog/2018/06/08/in-defense-of-functional-css/) as architecture. You can find more info about utility-first [here](https://tailwindcss.com/docs/utility-first).
 
-1.  **Open the source code and start editing!**
+Utility first CSS give us the advantage that we don’t need to write to much CSS what allow us to have an small build size once the unnecessary CSS classes are purged.
 
-    Your site is now running at `http://localhost:8000`!
+### Icons
+Given the site simplicity, I also avoided to import a complex icons libraries and typographies. Use icons libraries like font-awesome didn’t make to much sense in project that only needs two icons. I preferred to just to wrap both icons in their own react components.
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+I could have worked in a lot of abstraction layers, to make easier to migrate from this two components to a whole icons library, but seemed that the cost to write that abstraction was bigger than the cost of just change two components in the app. Abstract to early can add more complexity than the issues it solves.
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+### GitHub API
+I used the [gatsby-source-graphql](https://www.gatsbyjs.org/packages/gatsby-source-graphql/) plugin to map my GraphQL queries from the page to the GitHub API.
 
-## 🧐 What's inside?
+The project expects the GitHub API token as an environment variable: `GITHUB_TOKEN`
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+This token is only used by Gatsby to generate the website and should be safe to be published. You can also use a `.env` file for development. 
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+## Preview
+![Preview](/docs/preview.jpg)
