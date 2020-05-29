@@ -7,6 +7,20 @@ module.exports = {
       'laptop': '720px',
       'desktop': '720px',
     },
+    fontFamily: {
+      sans: [
+        'Segoe UI',
+        'Roboto',
+        'Helvetica Neue', 
+        'Arial',
+        'Noto Sans', 
+        'sans-serif',
+        'Apple Color Emoji', 
+        'Segoe UI Emoji', 
+        'Segoe UI Symbol', 
+        'Noto Color Emoji'
+      ]
+    }
   },
   variants: {},
   plugins: [],

@@ -10,8 +10,8 @@ const Header = ({ name, description, avatarUrl, url }) => (
         alt={name}
       />
       <div>
-        <a href={url}>
-          <h1 className="font-bold text-xl text-gray-900">
+        <a href={url} className="text-color-link">
+          <h1 className="font-bold text-xl">
             {name}
           </h1>
         </a>

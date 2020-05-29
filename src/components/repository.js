@@ -11,20 +11,20 @@ const IconGroup = ({ className }) => (
 )
 
 const Repository = ({ name, description, contributorsCount, starsCount, url }) => (
-  <section className="bg-white my-4 rounded p-3 border border-gray-400">
-    <a href={url}>
-      <h2 className="text-lg font-bold text-gray-900">{name}</h2>
-      <p className="">{description}</p>
-      <p className="text-base pt-3">
-        <span className="pr-2">
-          <IconStar className="h-4 inline-block pb-1" /> {starsCount}
-        </span>
-        <span className="pr-2">
-          <IconGroup className="h-4 inline-block pb-1" /> {contributorsCount}
-        </span>
-      </p>
+  <article className="bg-white my-4 rounded p-3 border border-gray-400">
+    <a href={url} className="text-color-link">
+      <h2 className="text-lg font-bold">{name}</h2>
     </a>
-  </section>
+    <p className="">{description}</p>
+    <p className="text-base pt-3">
+      <span className="pr-2">
+        <IconStar className="h-4 inline-block pb-1" /> {starsCount}
+      </span>
+      <span className="pr-2">
+        <IconGroup className="h-4 inline-block pb-1" /> {contributorsCount}
+      </span>
+    </p>
+  </article>
 )
 
 Repository.propTypes = {
