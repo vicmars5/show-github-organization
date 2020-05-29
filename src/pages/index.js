@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-import Header from '../components/header'
-import Repository from '../components/repository'
+import Layout from '../organisms/layout'
+import Header from '../organisms/header'
+import Repository from '../organisms/repository'
 
 const IndexPage = ({ data }) => (
   <Layout>
