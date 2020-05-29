@@ -31,6 +31,13 @@ Given the site simplicity, I also avoided to import a complex icons libraries an
 
 I could have worked in a lot of abstraction layers, to make easier to migrate from this two components to a whole icons library, but seemed that the cost to write that abstraction was bigger than the cost of just change two components in the app. Abstract to early can add more complexity than the issues it solves.
 
+### Components structure
+Components are organized based in [atomic design](https://bradfrost.com/blog/post/atomic-web-design/).
+* Each CSS class should be an _atom_.
+* Simple components like icons are _molecules_.
+* More complex components with state management are _organisms_.
+* And pages are pages. 😂
+
 ### GitHub API
 I used the [gatsby-source-graphql](https://www.gatsbyjs.org/packages/gatsby-source-graphql/) plugin to map my GraphQL queries from the page to the GitHub API.
 
