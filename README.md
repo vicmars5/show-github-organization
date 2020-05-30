@@ -17,9 +17,18 @@ This repo is configured for automatic deploys to Netlify.
 ## Project setup
 I wanted to keep this project as simple as possible avoiding the use of unnecessary dependencies to provide a better experience to the user and developer. The result is a lightweight website with a loading time of 1.13s in my home network.
 
-[See performance test](https://gtmetrix.com/reports/5ed2d4bf9e825000075a35bd--the-debtcollective.netlify.app/4yRImsgI)
+[GT Metrix test](https://gtmetrix.com/reports/5ed2d4bf9e825000075a35bd--the-debtcollective.netlify.app/4yRImsgI)
 
-![GitHub Logo](/docs/performance-test.png)
+![GT Metrix](/readme/performance-test.png)
+
+[Lighthouse test](https://lighthouse-dot-webdotdevsite.appspot.com//lh/html?url=https%3A%2F%2Fdeploy-preview-13--the-debtcollective.netlify.app%2F)
+
+![Lighouse](/readme/lighthouse-test.png)
+
+[Google test](https://developers.google.com/speed/pagespeed/insights/?hl=es&url=https%3A%2F%2Fdeploy-preview-13--the-debtcollective.netlify.app%2F&tab=mobile)
+
+![Google](/readme/google-test.png)
+
 
 To accomplish this goal I made use of tools like `purge-css` to remove all unused CSS classes. Before config this plugin the page size was around 177kb.
 
@@ -48,4 +57,4 @@ The project expects the GitHub API token as an environment variable: `GITHUB_TOK
 This token is only used by Gatsby to generate the website and should be safe to be published. You can also use a `.env` file for development. 
 
 ## Preview
-![Preview](/docs/preview.jpg)
+![Preview](/readme/preview.jpg)
