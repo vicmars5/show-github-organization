@@ -27,7 +27,7 @@ I wanted to keep this project as simple as possible avoiding the use of unnecess
 
 [Google test](https://developers.google.com/speed/pagespeed/insights/?hl=es&url=https%3A%2F%2Fdeploy-preview-13--the-debtcollective.netlify.app%2F&tab=mobile)
 
-[Google ](/readme/google-test.png)
+![Google](/readme/google-test.png)
 
 
 To accomplish this goal I made use of tools like `purge-css` to remove all unused CSS classes. Before config this plugin the page size was around 177kb.
