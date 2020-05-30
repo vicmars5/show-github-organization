@@ -3,13 +3,15 @@ import { graphql } from 'gatsby'
 
 import Layout from '../organisms/layout'
 import Header from '../organisms/header'
+import Metadata from '../organisms/metadata'
 import Repository from '../organisms/repository'
 
 const IndexPage = ({ data }) => (
   <Layout>
+    <Metadata {...data.github.organization} />
     <Header {...data.github.organization} />
 
-    <main className="container mx-auto p-3">
+    <main className='container mx-auto p-3'>
       {data.github.organization.repositories.edges.map((repository) => (
         <Repository
           key={repository.node.id}
