@@ -6,7 +6,7 @@ const Header = ({ name, description, avatarUrl, url }) => (
     <div className="container mx-auto py-4 flex">
       <img
         className="w-20 h-20 mr-2"
-        src={avatarUrl}
+        src={`${avatarUrl}&s=200`}
         alt={name}
       />
       <div>
