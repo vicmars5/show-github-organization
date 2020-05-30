@@ -1,5 +1,7 @@
+# Github Organization
 A repo to show GitHub organizations using the GitHub GraphQL API and Gatsby.
 
+[preview](https://the-debtcollective.netlify.app/)
 
 ## Start
 Run project.
@@ -13,9 +15,9 @@ Once the server is running you can see a preview in http://localhost:8000 Graphi
 This repo is configured for automatic deploys to Netlify.
 
 ## Project setup
-I wanted to keep this project as simple as possible avoiding the use of unnecessary dependencies to provide a better experience to the user and developer. The result is a lightweight website with a loading time of 1.25s in my home network.
+I wanted to keep this project as simple as possible avoiding the use of unnecessary dependencies to provide a better experience to the user and developer. The result is a lightweight website with a loading time of 1.13s in my home network.
 
-[See performance test](https://gtmetrix.com/reports/5ed098583465d8000719819e--stoic-noyce-23cda7.netlify.app/E4Dq2f6L)
+[See performance test](https://gtmetrix.com/reports/5ed2d4bf9e825000075a35bd--the-debtcollective.netlify.app/4yRImsgI)
 
 ![GitHub Logo](/docs/performance-test.png)
 
